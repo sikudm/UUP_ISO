@@ -524,9 +524,7 @@ if ($updateTitle -match '(\d{5}\.\d+)') {
 
 # .NET Framework 3.5 is no longer part of Windows 11 builds 27965 and later
 # (the converter skips it automatically for those builds).
-$buildMajor = 0
-if ($buildNumber -match '^(\d{5})') { $buildMajor = [int]$Matches[1] }
-$netfx3 = if ($buildMajor -ge 27965) { "false" } else { "true" }
+$netfx3 = false
 
 # Release tag suffix so Insider builds never collide with a Retail build of the same number
 $tagSuffix = ""
